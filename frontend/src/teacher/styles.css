@@ -10,3 +10,19 @@
   top: 0;
   width: 100%;
 }
+
+.style1 {
+  background-color: teal;
+  width: 100%;
+  border: none;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  margin-left: 0;
+  color: white;
+  padding-top: 10px;
+  text-align: left;
+}
+
+.style1:hover {
+  background: darkcyan;
+}

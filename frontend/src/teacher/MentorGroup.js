@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import { load } from './api'
 import "./styles.css";
-import {SidebarData} from './SidebarData'
+import { SidebarData } from './SidebarData'
+import {Button} from 'reactstrap'
 class MentorGroup extends Component{
     constructor(){
         super()
@@ -22,10 +23,10 @@ class MentorGroup extends Component{
                 { name: "", email: "" },
                 { name: "", email: "" }
             ]
-            }
+            },
+        
         }
     }
-
     componentDidMount = () => {
         const groupId = this.props.match.params.groupId
         load(groupId)
@@ -40,16 +41,12 @@ class MentorGroup extends Component{
             const {group}=this.state
         return (
             <div className="row">
-                <div style={{paddingLeft:"20px", paddingTop:"25px", height:"1000px", width: "20%", backgroundColor: "teal",position:"fixed"}}>
+                <div style={{ paddingTop:"70px", height:"1000px", width: "20%", backgroundColor: "teal",position:"fixed"}}>
                     {SidebarData.map((val, key) => {
                         return (
-                            <ul>
-                                <li key={key}>
-                                    <div>
-                                        {val.title}
-                                    </div>
-                                </li>
-                            </ul>
+                            <div>
+                                <button className="style1">{val.title}</button>
+                        </div>
                         )
                     })}
                 </div>
