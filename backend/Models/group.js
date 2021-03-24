@@ -30,7 +30,17 @@ const groupSchema = new mongoose.Schema({
         email: {
             type: String
         }
-    }]
+    }],
+    fields: { 
+        title: {
+            type: String
+        },
+        
+        description: {
+            type: String
+        }
+    }
+    
 })
 
 

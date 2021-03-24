@@ -1,36 +1,48 @@
 import React, {Component} from 'react'
 import { load } from './api'
 import "./styles.css";
-import { SidebarData } from './SidebarData'
-import {Button} from 'reactstrap'
+import Modal from './Modal'
 class MentorGroup extends Component{
     constructor(){
         super()
         this.state = {
             group: {
                 id: "",
-            mentor:
-            {
-                name: "",
-                email:""
+                mentor:
+                {
+                    name: "",
+                    email: ""
+                },
+                students: [
+                    { name: "", email: "" },
+                    { name: "", email: "" },
+                    { name: "", email: "" }
+                ],
+                supervisors: [
+                    { name: "", email: "" },
+                    { name: "", email: "" }
+                ],
+            fields: {
+                    title: "",
+                    description: ""
+                }
             },
-            students: [
-                { name: "", email: "" },
-                { name: "", email: "" },
-                { name: "", email: "" }
-            ],
-            supervisors: [
-                { name: "", email: "" },
-                { name: "", email: "" }
-            ]
-            },
-        
+            show:false        
         }
     }
+    showModal = () => {
+        this.setState({ show: true})
+    }
+
+    hideModal = () => {
+        this.setState({ show: false})
+    }
+
     componentDidMount = () => {
         const groupId = this.props.match.params.groupId
         load(groupId)
-        .then(data => {
+            .then(data => {
+            console.log(data)
             if(data.error)
                 console.log(data.error)
             else
@@ -38,20 +50,23 @@ class MentorGroup extends Component{
         })
     }
     render() {
-            const {group}=this.state
+        const { group } = this.state
         return (
             <div className="row">
-                <div style={{ paddingTop:"70px", height:"1000px", width: "20%", backgroundColor: "teal",position:"fixed"}}>
-                    {SidebarData.map((val, key) => {
-                        return (
-                            <div>
-                                <button className="style1">{val.title}</button>
-                        </div>
-                        )
-                    })}
+                <Modal show={this.state.show} handleClose={this.hideModal}>
+                            </Modal>
+                <div style={{ paddingTop: "70px", height: "1000px", width: "20%", backgroundColor: "teal", position: "fixed" }}>
+                    <p>
+                        <h5 style={{ paddingLeft: "20px" ,textDecorationLine: 'underline'}}>Details</h5>
+                        {group.fields.title!=="" && <button className="style1">Title</button>}                   
+                    </p>
+                    <p>
+                        <h5 style={{ paddingLeft: "20px" ,textDecorationLine: 'underline'}}>Assign Details</h5>
+                        {group.fields.title === "" && <button onClick={this.showModal} className="style1">Title</button>}
+                    </p>
                 </div>
                 <div style={{height:"100%" , width:"80%" , marginLeft:"20%",paddingLeft:"20px"}}>
-                <h2 style={{fontWeight: 'bold'}}>Group Details</h2> <br/> <br/> 
+                <h2 style={{fontWeight: 'bold', paddingTop:"70px"}}>Group Details</h2> <br/> <br/> 
                     <h5 style={{fontWeight: 'bold',textDecorationLine: 'underline'}}>Group Id: {group.id}</h5> <br/> <br/>
                     <h5 style={{fontWeight: 'bold',textDecorationLine: 'underline'}}>Students Details</h5>
                     <table class="table">
@@ -79,9 +94,7 @@ class MentorGroup extends Component{
                             <td>{group.students[2].email}</td>
                             </tr>
                         </tbody>
-                    </table> <br/> <br/> <br/>
-                    <h4 style={{fontWeight: 'bold',textDecorationLine: 'underline'}}>Title of the Project</h4>
-                    <h5>Object Character Recognition Using CUDA Framnework</h5>
+                    </table> 
                 </div>
             </div>
             )
