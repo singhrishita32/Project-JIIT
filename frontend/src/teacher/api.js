@@ -18,3 +18,18 @@ export const load = (groupId) => {
     })
     .catch(err => console.log(err));
 }
+
+export const updateGroup = (groupId, group) => {
+    return fetch(`http://localhost:9090/update/group/${groupId}`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(group)
+    })
+        .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err));
+}

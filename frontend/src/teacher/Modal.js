@@ -1,6 +1,6 @@
 import './styles.css'
 import React from 'react';
-const Modal = ({ handleClose, show}) => {
+const Modal = ({ handleAssign,handleClose, show}) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none"
     return (
         <div className={showHideClassName}>
@@ -8,7 +8,10 @@ const Modal = ({ handleClose, show}) => {
                 I'm dialog
                 <button type="button" onClick={handleClose}>
                     Close
+            </button> <button type="button" onClick={handleAssign}>
+                    Assign
             </button>
+                
             </section>
         </div>
     );

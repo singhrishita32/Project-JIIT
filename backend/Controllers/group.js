@@ -2,7 +2,7 @@ const { Result } = require('express-validator');
 const Group= require('../Models/group')
 const formidable = require('formidable')
 const fs = require('fs')
-const lodash = require("lodash")
+const _ = require("lodash")
 
 exports.createGroup = (req, res) => {
     //console.log(req);
@@ -34,6 +34,29 @@ exports.groupById = (req, res, next, id) => {
 }
 
 exports.getGroup = (req, res) => {
-    console.log("hi")
     return res.json(req.groupDetails)
 }
+
+exports.updateGroup = (req, res) => {
+    // let form = new formidable.IncomingForm()
+    // form.parse(req, (err, fields) => {
+    //     if (err) {
+    //         return res.status(400).json({
+    //             error:"Error Occured!"
+    //         })
+    //     }
+    let group = req.groupDetails
+    console.log("req body",req.body);
+    console.log("details",req.groupDetails);
+        //group = _.extend(group, fields)
+        group = _.extend(group)
+        group.save((err, success) => {
+            if(err){ 
+                return res.status(400).json
+                    ({ error: err })
+            }
+            res.json(group);
+        })
+
+    // })
+};

@@ -94,9 +94,12 @@ class MentorGroup extends Component{
                         <h5 style={{ paddingLeft: "20px", textDecorationLine: 'underline' }}>Details</h5>
                         {group.supervisors !== [] && <button className="style1" value="supervisors"
                             onClick={(event) => this.handleClick(event)}>Supervisors</button>}
+                        
                     </p>
                     <p>
                         <h5 style={{ paddingLeft: "20px", textDecorationLine: 'underline' }}>Assign Details</h5>
+                        {group.fields.title==="" && <button className="style1" value="title"
+                            onClick={(event) => this.handleClick(event)}>Title</button>}
                     </p>
                 </div>
                 <div style={{height:"100%" , width:"80%" , marginLeft:"20%",paddingLeft:"20px"}}>
@@ -132,7 +135,10 @@ class MentorGroup extends Component{
                         
                         {current ==="supervisors" && <div>
                             <h4 style={{ marginTop: "5%", fontWeight: 'bold', textDecorationLine: 'underline' }}>Supervisors</h4>
-    
+                        </div>}
+
+                        {current ==="title" && <div>
+                            <h4 style={{ marginTop: "5%", fontWeight: 'bold', textDecorationLine: 'underline' }}>Title of Project</h4>
                         </div>}
 
                     </div>
