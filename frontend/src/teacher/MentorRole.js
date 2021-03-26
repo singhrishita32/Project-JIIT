@@ -27,7 +27,7 @@ class MentorRole extends Component {
         <div className>
             { groups.map((group, i) => (
              group.mentor.email === isAuthenticatedT().teacher.email &&(
-                        <div className="card col-md-4" style={{marginLeft:"20px" ,marginTop:"20px",height:"150px",width:"auto" ,paddingBottom: "20px" ,paddingTop: "20px" ,paddingRight: "30px" ,paddingLeft: "30px" }}>
+                    <div className="card col-md-4" style={{marginLeft:"20px" ,marginTop:"20px",height:"150px",width:"auto" ,paddingBottom: "20px" ,paddingTop: "20px" ,paddingRight: "30px" ,paddingLeft: "30px" }}>
                             <div className="card-body" key={i}>
                             <h3 className="card-title">GROUP ID : {group.id}</h3>
                             <h5><Link to={`/mentor/${group._id}/details`}>View Details</Link> </h5>
