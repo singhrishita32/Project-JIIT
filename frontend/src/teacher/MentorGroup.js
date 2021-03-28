@@ -22,15 +22,15 @@ class MentorGroup extends Component{
                     { name: "", email: "" },
                     { name: "", email: "" }
                 ],
-            fields: {
-                    title: "",
-                    description: ""
-                }
-            },
-            show: false,
-            current: "",
-            groupId:''
-        }
+                fields: {
+                        title: "",
+                        description: ""
+                    }
+                },
+                show: false,
+                current: "",
+                groupId:''
+            }
     }
     showModal = () => {
         this.setState({ show: true})
@@ -56,12 +56,17 @@ class MentorGroup extends Component{
         const { current, group,groupId } = this.state
         if (current === "title")
             group.fields.title = "--NOT UPLOADED--"
+        
+        if (current === "description")
+            group.fields.description = "--NOT UPLOADED--"
+        
         this.setState({
             group
         })
         
          updateGroup(groupId, group)
              .then(data => {
+                 //console.log(data)
                 if (data.error)
                     console.log(data.error)
                 else
@@ -69,7 +74,6 @@ class MentorGroup extends Component{
                         group: data
                     })    
              })
-        console.log(group)
          this.setState({
              show: false    
          })
@@ -88,22 +92,26 @@ class MentorGroup extends Component{
     }
     render() {
         const { group, show, current } = this.state
-        // console.log(group.fields)
-        const showHideClassName = show ? "modal display-block" : "modal display-none"
+        //console.log(group.fields)
+        const showHideClassName = show ? "modal display-block":"modal display-none"
         return (
             <div className="row">
-
                 <div className={showHideClassName}>
-                            < section className="modal-main">
-                                I'm dialog
-                                <button type="button" onClick={this.hideModal}>
-                                    Close
-                            </button> <button type="button" onClick={this.handleAssign}>
-                                    Assign
-                            </button>
-                                
-                            </section>
-                        </div>
+                    < section className="modal-main">
+                        <p style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                            I'a dialog
+                        </p>
+                        <button type="button"
+                        style={{backgroundColor:"teal", paddingLeft: "10px", paddingRight: "10px", cursor:'pointer' }}
+                        onClick={this.hideModal}>
+                            Close
+                        </button> <button type="button"
+                         style={{backgroundColor:"teal", paddingLeft: "10px", paddingRight: "10px", cursor:'pointer' }}
+                        onClick={this.handleAssign}>
+                            Assign
+                        </button>
+                    </section>
+                </div>
 
                 {/* Sidebar */}
                 <div style={{ paddingTop: "70px", height: "1000px", width: "20%", backgroundColor: "teal", position: "fixed" }}>
@@ -171,34 +179,36 @@ class MentorGroup extends Component{
                             <p>{ group.fields.description}</p>
                             </div>}
                         
-                        {current === "supervisors" && group.supervisors !== [] && 
-                            <div>
-                             <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Supervisors Details</h5>
-                     <table class="table">
-                         <thead>
-                             <tr>
-                             <th scope="col">S No.</th>
-                             <th scope="col">Name</th>
-                             <th scope="col">Email</th>
-                             </tr>
-                         </thead>
-                         <tbody>
-                             <tr>
-                             <th scope="row">1</th>
-                             <td>{group.supervisors[0].name}</td>
-                             <td>{group.supervisors[0].email}</td>
-                             </tr>
-                             <tr>
-                             <th scope="row">2</th>
-                             <td>{group.supervisors[1].name}</td>
-                             <td>{group.supervisors[1].email}</td>
-                             </tr>
-                         </tbody>
-                        </table>
+                            {current ==="title" && group.fields.title!=="" && <div>
+                            <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline'  }}>Title of Project</h5>
+                            <p>{group.fields.title}</p>
                             </div>}
 
-                        {current ==="title" && group.fields.title!=="" && <div>
-                            <h4 style={{ marginTop: "5%", fontWeight: 'bold', textDecorationLine: 'underline' }}>Title of Project</h4>
+                        
+                        {current === "supervisors" && group.supervisors !== [] && 
+                        <div>
+                            <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Supervisors Details</h5>
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">S No.</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>{group.supervisors[0].name}</td>
+                                <td>{group.supervisors[0].email}</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">2</th>
+                                <td>{group.supervisors[1].name}</td>
+                                <td>{group.supervisors[1].email}</td>
+                                </tr>
+                            </tbody>
+                            </table>
                         </div>}
 
                     </div>

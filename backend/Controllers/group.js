@@ -45,11 +45,10 @@ exports.updateGroup = (req, res) => {
     //             error:"Error Occured!"
     //         })
     //     }
-    let group = req.groupDetails
-    console.log("req body",req.body);
-    console.log("details",req.groupDetails);
-        //group = _.extend(group, fields)
-        group = _.extend(group)
+        let group = req.groupDetails
+        //console.log(group);
+        //console.log(req.body)
+        group = _.extend(group,req.body)
         group.save((err, success) => {
             if(err){ 
                 return res.status(400).json

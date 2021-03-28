@@ -39,10 +39,14 @@
 .modal-main {
   position: fixed;
   background: white;
-  width: 80%;
-  height: auto;
+  width: 30%;
+  height: 30%;
   top: 50%;
   left: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   transform: translate(-50%, -50%);
 }
 

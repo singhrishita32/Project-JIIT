@@ -9,7 +9,7 @@ export const list = () => {
 }
 
 export const load = (groupId) => {
-    console.log(groupId)
+    //console.log(groupId)
     return fetch(`http://localhost:9090/groupBy/${groupId}` , {
         method: "GET"
     })
@@ -20,6 +20,7 @@ export const load = (groupId) => {
 }
 
 export const updateGroup = (groupId, group) => {
+    //console.log(group);
     return fetch(`http://localhost:9090/update/group/${groupId}`, {
         method: "PUT",
         headers: {
