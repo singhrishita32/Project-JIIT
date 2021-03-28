@@ -21,7 +21,9 @@ class Home extends Component {
                                     </p>
                                     <br />
                                     <br />
+                                    <Link to='/SigninS'>
                                     <Button color="primary" className="btn btn-outline-primary" style={{ marginLeft: 95 }} >Login</Button>{' '}
+                                    </Link>
                                     <br />
                                     <br />
                                     <br />
@@ -33,7 +35,7 @@ class Home extends Component {
                                     </h6>
                                     <p style={{ marginLeft: 52 }}>
                                         Please click here to&nbsp;
-                                    <a href="/" className="card-link" >
+                                    <a href="/SignupS" className="card-link" >
                                             Signup
                                     </a>
                                     </p>
