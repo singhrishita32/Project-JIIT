@@ -1,0 +1,59 @@
+.right {
+  height: 100%;
+  padding-left: 10px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: whitesmoke;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.style1 {
+  background-color: teal;
+  width: 100%;
+  border: none;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  margin-left: 0;
+  color: white;
+  padding-top: 10px;
+  text-align: left;
+}
+
+.style1:hover {
+  background: darkcyan;
+  cursor: pointer;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 30%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}

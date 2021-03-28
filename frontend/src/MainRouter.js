@@ -8,6 +8,7 @@ import SigninS from './student/SigninS'
 import Menu from './core/Menu'
 import AdminDashboard from './admin/AdminDashboard'
 import DashboardT from './teacher/DashboardT'
+import DashboardS from './student/DashboardS'
 import MentorRole from './teacher/MentorRole'
 import MentorGroup from './teacher/MentorGroup'
 const MainRouter = () => {
@@ -24,6 +25,7 @@ const MainRouter = () => {
                 <Route exact path="/group/new" component={AdminDashboard}></Route>
                 <Route exact path="/mentorrole" component={MentorRole}></Route>
                 <Route exact path="/DashboardT" component={DashboardT}></Route>
+                <Route exact path="/DashboardS" component={DashboardS}></Route>
                 <Route exact path="/mentor/:groupId/details" component={MentorGroup}></Route>
             </Switch>
         </div>
