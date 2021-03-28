@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { updateGroup,load } from './api'
 import "./styles.css";
-
+import Menu from '../core/Menu'
 class MentorGroup extends Component{
 
     constructor(){
@@ -119,7 +119,9 @@ class MentorGroup extends Component{
         //console.log(group.fields)
         const showHideClassName = show ? "modal display-block":"modal display-none"
         return (
-            <div className="row">
+            <div>
+                <Menu></Menu>
+                <div className="row">
                 <div className={showHideClassName}>
                      <div className="modal-main">
                       
@@ -171,8 +173,8 @@ class MentorGroup extends Component{
                 </div>
                 
                 {/*Data rendered on right of sidebar */}
-                <div style={{ height: "100%", width: "80%", marginLeft: "20%", paddingLeft: "20px" }}>
-                <h2 style={{fontWeight: 'bold', paddingTop:"70px"}}>Group Details</h2> <br/> <br/> 
+                <div style={{ height: "100%", width: "80%", marginLeft: "20%", paddingLeft: "20px", paddingTop:"70px" }}>
+                <h2 style={{fontWeight: 'bold'}}>Group Details</h2> <br/> <br/> 
                          <div>
                           <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Students Details</h5>
                      <table class="table">
@@ -244,6 +246,7 @@ class MentorGroup extends Component{
                    
                 </div>
             </div>
+           </div>
             )
         }
 }

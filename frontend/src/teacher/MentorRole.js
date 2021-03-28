@@ -2,7 +2,8 @@
 import React, { Component } from 'react'
 import {list} from './api'
 import { Link } from 'react-router-dom'
-import {isAuthenticatedT} from '../Auth/Teacher'
+import { isAuthenticatedT } from '../Auth/Teacher'
+import Menu from '../core/Menu'
 class MentorRole extends Component {
 
     constructor(){
@@ -43,6 +44,7 @@ class MentorRole extends Component {
          const{groups} = this.state
          return (
              <div>
+                 <Menu></Menu>
                  <div className="jumbotron" >
                      <h3 style={{paddingLeft:"15ox"}}>Groups</h3>
                  </div>

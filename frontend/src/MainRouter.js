@@ -5,7 +5,6 @@ import SignupT from './teacher/SignupT'
 import SigninT from './teacher/SigninT'
 import SignupS from './student/SignupS'
 import SigninS from './student/SigninS'
-import Menu from './core/Menu'
 import AdminDashboard from './admin/AdminDashboard'
 import DashboardT from './teacher/DashboardT'
 import DashboardS from './student/DashboardS'
@@ -15,7 +14,6 @@ const MainRouter = () => {
     return (
         <div>
 
-            <Menu></Menu>
             <Switch>
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/signupT" component={SignupT}></Route>

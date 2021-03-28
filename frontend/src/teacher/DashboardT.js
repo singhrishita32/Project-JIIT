@@ -1,9 +1,12 @@
 
 import React, { Component } from 'react'
+import Menu from '../core/Menu'
 class DashboardT extends Component {
         render() {
             return (
-                <div className="container-fluid" >
+                <div>
+                    <Menu></Menu>
+                    <div className="container-fluid" >
                     <br/><br/><br/><br/><br/><br/>
                         <div className="row" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <div className="col col-md-3 " style={{paddingBottom: "20px" ,paddingTop: "20px" ,paddingRight: "10px" ,paddingLeft: "10px" }} >
@@ -36,6 +39,7 @@ class DashboardT extends Component {
     
                         </div>
                     </div>
+               </div>
             );
         }
     
