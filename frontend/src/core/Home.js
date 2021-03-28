@@ -14,10 +14,10 @@ class Home extends Component {
                         <div className="col col-md-3 " style={{ paddingBottom: "20px" ,paddingTop: "20px" ,paddingRight: "10px" ,paddingLeft: "10px" }} >
                             <div className="card" style={{ width: "20rem", height: "25rem" }}>
                                 <div className="card-body" >
-                                    <h5 className="card-title" style={{ marginLeft: 60, marginBottom: 10 }}>
+                                    <h5 className="card-title" style={{ textAlign:'center' , marginBottom: 10 }}>
                                         Student Login
                                     </h5>
-                                    <p className="card-text" style={{ marginLeft: 60 }}>Student
+                                    <p className="card-text" style={{textAlign:'center' }}>Student
                                     </p>
                                     <br />
                                     <br />
@@ -30,10 +30,10 @@ class Home extends Component {
                                     <br />
                                     <br />
                                     <hr />
-                                    <h6 className="card-subtitle mb-2 text-muted" style={{ marginLeft: 60, marginBottom: 10 }}>
+                                    <h6 className="card-subtitle mb-2 text-muted" style={{ textAlign:'center' , marginBottom: 10 }}>
                                         Not yet registered?
                                     </h6>
-                                    <p style={{ marginLeft: 52 }}>
+                                    <p style={{textAlign:'center'  }}>
                                         Please click here to&nbsp;
                                     <a href="/SignupS" className="card-link" >
                                             Signup
@@ -46,10 +46,10 @@ class Home extends Component {
                         <div className="col col-md-3 " style={{ paddingBottom: "20px" ,paddingTop: "20px" ,paddingRight: "10px" ,paddingLeft: "10px" }} >
                             <div className="card" style={{ width: "20rem", height: "25rem" }}>
                                 <div className="card-body" >
-                                    <h5 className="card-title" style={{ marginLeft: 60 }}>
+                                    <h5 className="card-title" style={{ textAlign:'center'  }}>
                                         Faculty Login
                                     </h5>
-                                    <p className="card-text" style={{ marginLeft: 60 }} >Faculty 
+                                    <p className="card-text" style={{ textAlign:'center'}} >Faculty 
                                     </p>
                                     <br />
                                     <br />
@@ -62,10 +62,10 @@ class Home extends Component {
                                     <br />
                                     <br />
                                     <hr />
-                                    <h6 className="card-subtitle mb-2 text-muted" style={{ marginLeft: 60 }}>
+                                    <h6 className="card-subtitle mb-2 text-muted" style={{ textAlign:'center'  }}>
                                         Not yet registered?
                                     </h6>
-                                    <p style={{ marginLeft: 52 }}>
+                                    <p style={{ textAlign:'center'  }}>
                                         Please click here to&nbsp;
                                         <Link to="/SignupT">Signup</Link>
                                     </p>
