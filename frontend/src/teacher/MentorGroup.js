@@ -3,6 +3,7 @@ import { updateGroup,load } from './api'
 import "./styles.css";
 
 class MentorGroup extends Component{
+
     constructor(){
         super()
         this.state = {
@@ -27,11 +28,18 @@ class MentorGroup extends Component{
                         description: ""
                     }
                 },
+                deadlines: {
+                    title:'',
+                    description:''
+
+                },
                 show: false,
                 current: "",
-                groupId:''
+                groupId: '',
+                dateset:''
             }
     }
+    
     showModal = () => {
         this.setState({ show: true})
     }
@@ -53,12 +61,21 @@ class MentorGroup extends Component{
 
     handleAssign = () => {
         
-        const { current, group,groupId } = this.state
+        const { current, group,groupId,dateset } = this.state
         if (current === "title")
+        {
             group.fields.title = "--NOT UPLOADED--"
+            group.deadlines.title=dateset
+     
+            
+        }
+      
         
         if (current === "description")
+        {
             group.fields.description = "--NOT UPLOADED--"
+            group.deadlines.description=dateset
+        }
         
         this.setState({
             group
@@ -88,29 +105,41 @@ class MentorGroup extends Component{
                 console.log(data.error)
             else
                 this.setState({group:data, groupId:groupId})
+            })
+    }
+
+    handleChange =() => (event)=> {
+        this.setState({
+            dateset: event.target.value
         })
     }
+
     render() {
-        const { group, show, current } = this.state
+        const { group, show, current,dateset} = this.state
         //console.log(group.fields)
         const showHideClassName = show ? "modal display-block":"modal display-none"
         return (
             <div className="row">
                 <div className={showHideClassName}>
-                    < section className="modal-main">
-                        <p style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                            I'a dialog
-                        </p>
+                     <div className="modal-main">
+                      
+                        <input
+                            type="date"
+                            value={dateset}
+                            onChange={this.handleChange()}>
+                            </input>
+                        <br/>
                         <button type="button"
                         style={{backgroundColor:"teal", paddingLeft: "10px", paddingRight: "10px", cursor:'pointer' }}
                         onClick={this.hideModal}>
                             Close
-                        </button> <button type="button"
+                        </button>
+                        <button type="button"
                          style={{backgroundColor:"teal", paddingLeft: "10px", paddingRight: "10px", cursor:'pointer' }}
                         onClick={this.handleAssign}>
                             Assign
                         </button>
-                    </section>
+                    </div>
                 </div>
 
                 {/* Sidebar */}

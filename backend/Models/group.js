@@ -39,6 +39,10 @@ const groupSchema = new mongoose.Schema({
         description: {
             type: String
         }
+    },
+    deadlines: {
+        title: {type: Date},
+        description: {type: Date}
     }
     
 })

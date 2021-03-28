@@ -40,7 +40,7 @@
   position: fixed;
   background: white;
   width: 30%;
-  height: 30%;
+  height: auto;
   top: 50%;
   left: 50%;
   padding-left: 10px;
