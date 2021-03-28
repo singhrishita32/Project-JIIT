@@ -38,3 +38,38 @@ exports.signoutT = (req,res) => {
     return res.json({message: "Signed Out!"});
 } 
 
+//STUDENT
+
+const Student = require('../Models/student')
+exports.signupS = async (req, res) => {
+    const studentExists = await Student.findOne({email: req.body.email})
+    if(studentExists)
+        return res.status(403).json({error: "Email taken"});
+    
+    const student = await new Student(req.body)
+    await student.save();
+    res.status(200).json("Signup Successful please login");
+}
+
+exports.signinS = (req, res) => {
+    const {email, password} = req.body
+    Student.findOne({email}, (err,student)=>{
+        if(err || !student)
+            return res.status(401).json({error: "Student with that email does not exist"})
+    
+        if(!student.authenticate(password))
+            return res.status(401).json({error: "Email and password do not match"});
+
+
+        const token = jwt.sign({_id: student._id},process.env.JWT_SECRET);
+        res.cookie("t",token,{expire: new Date()+9999})
+        const {_id,name,email} = student
+        return res.json({token,student: {_id,name,email}}); 
+   })
+}
+
+
+exports.signoutS = (req,res) => {
+    res.clearCookie("t");
+    return res.json({message: "Signed Out!"});
+} 
