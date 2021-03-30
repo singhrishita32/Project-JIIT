@@ -69,9 +69,9 @@ class DashboardS extends Component{
                         
                         {group.supervisors !== [] && <button className="style1" value="supervisors"
                             onClick={(event) => this.handleClick(event)}>Supervisors</button>}
-                        {group.fields.title!==""  &&group._id!=="" && date<=new Date(group.deadlines.title) &&group.deadlines.title!==null && <button className="style1" value="title"
+                        {group.fields.title!==""  && group._id!=="" && date<=new Date(group.deadlines.title) &&group.deadlines.title!==null && <button className="style1" value="title"
                             onClick={(event) => this.handleClick(event)}>Title</button>}
-                        {group.fields.description!=="" && group.deadlines.description!==null && <button className="style1" value="description"
+                        {group.fields.description!=="" && group._id!=="" && date<=new Date(group.deadlines.description)&& group.deadlines.description!==null && <button className="style1" value="description"
                             onClick={(event) => this.handleClick(event)}>Description</button>}
                     </p >
                 </div>
