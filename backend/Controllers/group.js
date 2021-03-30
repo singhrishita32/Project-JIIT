@@ -1,5 +1,6 @@
 const { Result } = require('express-validator');
-const Group= require('../Models/group')
+const Group = require('../Models/group')
+const Student=require('../Models/student')
 const formidable = require('formidable')
 const fs = require('fs')
 const _ = require("lodash")
@@ -9,7 +10,20 @@ exports.createGroup = (req, res) => {
     const group = new Group(req.body);
     group.save()
         .then(result => {
-        console.log(result.students)
+            console.log(req.body.students[2].name);
+            for (var i = 0; i < req.body.students.length; i++)
+            {
+                Student.update(
+                    {email: req.body.students[i].email}, 
+                    {$set: {'group': group._id}}, 
+                    { new: true }
+                    
+                )
+                    .then(success => {
+                console.log("Student updated")
+            })
+            }
+            
         res.json({
             group: result
         });

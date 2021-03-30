@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
+const Group=require('./group')
 const uuidv1 = require('uuidv1')
 const crypto =  require('crypto')
 //const {ObjectId} =mongoose.Schema
 const userSchema = new mongoose.Schema({
+    group: {
+        type: mongoose.Schema.ObjectId,
+        ref:"Group"
+        
+    },
     name: {
         type: String,
         trim: true,
