@@ -177,7 +177,7 @@ class MentorGroup extends Component{
                 <h2 style={{fontWeight: 'bold'}}>Group Details</h2> <br/> <br/> 
                          <div>
                           <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Students Details</h5>
-                     <table class="table">
+                     <table className="table">
                          <thead>
                              <tr>
                              <th scope="col">S.No.</th>
@@ -219,7 +219,7 @@ class MentorGroup extends Component{
                         {current === "supervisors" && group.supervisors !== [] && 
                         <div>
                             <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Supervisors Details</h5>
-                            <table class="table">
+                            <table className="table">
                             <thead>
                                 <tr>
                                 <th scope="col">S No.</th>

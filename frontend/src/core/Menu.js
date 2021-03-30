@@ -2,7 +2,6 @@ import React from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import { signoutT, isAuthenticatedT } from '../Auth/Teacher'
 import '../teacher/styles.css'
-import {signoutS,isAuthenticatedS} from '../Auth/Student'
 
 const isActive = (history, path) => {
     if(history.location.pathname === path)
