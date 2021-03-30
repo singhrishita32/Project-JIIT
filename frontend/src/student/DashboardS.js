@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import './styles.css';
-import Menu from '../core/MenuS'
+import {load} from '../teacher/api'
 import MenuS from '../core/MenuS';
 class DashboardS extends Component{
-
+   
     render() {
         return (
             <div>
@@ -19,7 +19,7 @@ class DashboardS extends Component{
                 </div>
                 {/*Data rendered on right of sidebar */}
                 <div style={{ height: "100%", width: "80%", marginLeft: "20%", paddingLeft: "20px" ,paddingTop:"70px"}}>
-                    <h3 >Details</h3>
+                    <h3>Details</h3>
                 </div>
                 
             </div>

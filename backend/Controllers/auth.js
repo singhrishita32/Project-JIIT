@@ -63,8 +63,8 @@ exports.signinS = (req, res) => {
 
         const token = jwt.sign({_id: student._id},process.env.JWT_SECRET);
         res.cookie("t",token,{expire: new Date()+9999})
-        const {_id,name,email} = student
-        return res.json({token,student: {_id,name,email}}); 
+        const {_id,name,email,group} = student
+        return res.json({token,student: {_id,name,email,group}}); 
    })
 }
 
