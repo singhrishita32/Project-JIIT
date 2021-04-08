@@ -6,11 +6,9 @@ const fs = require('fs')
 const _ = require("lodash")
 
 exports.createGroup = (req, res) => {
-    //console.log(req);
     const group = new Group(req.body);
     group.save()
         .then(result => {
-            console.log(req.body.students[2].name);
             for (var i = 0; i < req.body.students.length; i++)
             {
                 Student.update(
@@ -52,16 +50,7 @@ exports.getGroup = (req, res) => {
 }
 
 exports.updateGroup = (req, res) => {
-    // let form = new formidable.IncomingForm()
-    // form.parse(req, (err, fields) => {
-    //     if (err) {
-    //         return res.status(400).json({
-    //             error:"Error Occured!"
-    //         })
-    //     }
         let group = req.groupDetails
-        //console.log(group);
-        //console.log(req.body)
         group = _.extend(group,req.body)
         group.save((err, success) => {
             if(err){ 
@@ -70,6 +59,5 @@ exports.updateGroup = (req, res) => {
             }
             res.json(group);
         })
-
-    // })
 };
+

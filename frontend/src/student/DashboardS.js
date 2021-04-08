@@ -63,10 +63,9 @@ class DashboardS extends Component{
     }
 
     handleSave = () => {
-        const { current, group, entry } = this.state
-        var s = entry.trim();      
+        const { current, group, entry } = this.state   
         this.setState({
-            entry:s
+            entry
         })
         if (current === "title" && entry!=="") {
             group.fields.title = entry
@@ -81,7 +80,6 @@ class DashboardS extends Component{
         })
          updateGroup(group._id, group)
              .then(data => {
-                 //console.log(data)
                 if (data.error)
                     console.log(data.error)
                 else

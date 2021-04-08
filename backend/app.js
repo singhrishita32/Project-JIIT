@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const Authroutes = require('./Routes/auth')
 const Grouproutes = require('./Routes/group')
+const TrialRoutes=require('./Routes/trial')
 const cookieparser=require('cookie-parser')
 const bodyparser = require("body-parser")
 const expressValidator = require('express-validator')
@@ -24,7 +25,8 @@ app.use(morgan('dev'))
 app.use(bodyparser.json())
 app.use(cookieparser())
 app.use('/', Authroutes)
-app.use('/',Grouproutes)
+app.use('/', Grouproutes)
+app.use('/', TrialRoutes)
 
 const port = process.env.PORT
 app.listen(port, () => {
