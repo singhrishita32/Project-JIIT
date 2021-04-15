@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { updateGroup,load } from './api'
 import "./styles.css";
+import {iframe} from 'react-iframe'
 import Menu from '../core/Menu'
 class MentorGroup extends Component{
     constructor() {
@@ -234,7 +235,13 @@ class MentorGroup extends Component{
                                     <p>{group.fields.title}</p>
                                     </div>}
 
-                                {current==="report" &&  <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Report</h5> }
+                                {current==="report"  
+                                && <div>
+                                <h5 style={{ fontWeight: 'bold', textDecorationLine:'underline'  }}>Report</h5>
+                                {group.fields.report ? <iframe width="80%" height="1000" src={`http://localhost:9090/group/report/${group._id}`}></iframe> :
+                                <div>Not Uploaded</div>}
+                                </div>}
+                    
                                 {current === "supervisors" && group.supervisors !== [] && 
                                     <div>
                                         <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Supervisors Details</h5>

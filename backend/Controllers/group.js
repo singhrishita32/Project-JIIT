@@ -77,14 +77,11 @@ exports.updateGroup = (req, res) => {
         })
     })
 }
-// exports.updateGroup = (req, res) => {
-//     let group = req.groupDetails
-//     group = _.extend(group,req.body)
-//     group.save((err, success) => {
-//         if(err){ 
-//             return res.status(400).json
-//                 ({ error: err })
-//         }
-//         res.json(group);
-//     })
-// };
+exports.groupReport = (req, res) => {
+    console.log("reached")
+    if (req.groupDetails.fields.report.data)
+    {
+        res.set("Content-Type", req.groupDetails.fields.report.contentType)
+        return res.send(req.groupDetails.fields.report.data);
+        }
+}
