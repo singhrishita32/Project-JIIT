@@ -50,14 +50,41 @@ exports.getGroup = (req, res) => {
 }
 
 exports.updateGroup = (req, res) => {
+    console.log("Reached")
+    let form = new formidable.IncomingForm()
+    form.keepExtensions = true
+    form.parse(req, (err, fields, files) => {
+        if (err) {
+            return res.status(400).json({
+                error: "Try Again!"
+            })
+        }
+        console.log(files)
         let group = req.groupDetails
-        group = _.extend(group,req.body)
+        group.fields = _.extend(group.fields,fields)
+        
+        if (files.report) {
+            group.fields.report.data = fs.readFileSync(files.report.path)
+            group.fields.report.contentType = files.report.type
+        }
         group.save((err, success) => {
-            if(err){ 
+            if (err) {
                 return res.status(400).json
                     ({ error: err })
             }
-            res.json(group);
+            console.log("Finished")
+            res.json({group});
         })
-};
-
+    })
+}
+// exports.updateGroup = (req, res) => {
+//     let group = req.groupDetails
+//     group = _.extend(group,req.body)
+//     group.save((err, success) => {
+//         if(err){ 
+//             return res.status(400).json
+//                 ({ error: err })
+//         }
+//         res.json(group);
+//     })
+// };

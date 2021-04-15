@@ -35,17 +35,18 @@ const groupSchema = new mongoose.Schema({
         title: {
             type: String
         },
-    description: {
+        description: {
             type: String
+        },
+        report: {
+            data: Buffer,
+            contentType:String
         }
     },
     deadlines: {
         title: {type: Date},
-        description: {type: Date}
-    },
-    reports: {
-        type: Buffer,
-        contentType:String
+        description: { type: Date },
+        report:{type :Date}
     }
 })
 

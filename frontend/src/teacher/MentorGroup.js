@@ -28,7 +28,8 @@ class MentorGroup extends Component{
                 },
                 deadlines: {
                     title: '',
-                    description: ''
+                    description: '',
+                    report:''
                 }
             },
             current: "",
@@ -77,6 +78,10 @@ class MentorGroup extends Component{
             group.deadlines.description=dateset
         }
         
+        if (current === "report")
+        {
+            group.deadlines.report = dateset
+        }
         this.setState({
             group
         })
@@ -127,6 +132,9 @@ class MentorGroup extends Component{
                         
             {group.fields.description !=="" && <button className="style1" value="description"
             onClick={(event) => this.handleClick(event,false)}>Description</button>}
+            
+            {group.deadlines.report!==undefined && <button className="style1" value="report"
+                onClick={(event) => this.handleClick(event,false)}>Report</button>}
                         
         </p>
         )
@@ -142,6 +150,10 @@ class MentorGroup extends Component{
                 
                 {group.fields.description==="" && <button className="style1" value="description"
                 onClick={(event) => this.handleClick(event,true)}>Description</button>}
+                
+                
+                {group.deadlines.report===undefined && <button className="style1" value="report"
+                onClick={(event) => this.handleClick(event,true)}>Report</button>}
             </p>
         )
     }
@@ -222,7 +234,7 @@ class MentorGroup extends Component{
                                     <p>{group.fields.title}</p>
                                     </div>}
 
-                        
+                                {current==="report" &&  <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Report</h5> }
                                 {current === "supervisors" && group.supervisors !== [] && 
                                     <div>
                                         <h5 style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Supervisors Details</h5>
